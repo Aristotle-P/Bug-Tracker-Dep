@@ -10,6 +10,15 @@ router.get('/users', async (req, res) => {
   res.send(users);
 })
 
+// Get individual user
+router.get('/user/:id', async (req, res) => {
+  const id = req.params.id;
+  try {
+    const user = await User.findById({ _id: id });
+    res.send(user);
+  } catch (err) { res.send(err) };
+})
+
 
 // Create user
 router.post('/user', async (req, res) => {
