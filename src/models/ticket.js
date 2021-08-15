@@ -16,6 +16,10 @@ const ticketSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
+  priority: {
+    type: Boolean,
+    required: true
+  },
   developer: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,
