@@ -46,4 +46,18 @@ router.put('/ticket/:id', async (req, res) => {
   }
 })
 
+// Delete ticket
+router.delete('/ticket/:id', async (req, res) => {
+  try {
+    const ticket = await Ticket.findOne({ _id: req.params.id });
+    if (!ticket) {
+      res.status(404).send('Could not find ticket');
+    }
+    await ticket.deleteOne();
+    res.status(200).send('Ticket deleted');
+  } catch (err) {
+    console.log(err);
+  }
+})
+
 module.exports = router;

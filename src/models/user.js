@@ -29,6 +29,14 @@ const userSchema = new mongoose.Schema({
         throw new Error('Password cannot include the word "password"');
       }
     },
+  },
+  admin: {
+    type: Boolean,
+    required: true
+  },
+  teamLead: {
+    type: Boolean,
+    required: true
   }
 });
 
